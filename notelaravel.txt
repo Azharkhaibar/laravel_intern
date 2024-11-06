@@ -1,0 +1,11 @@
+# membuat database
+php artisan make:migration create_misal_apa
+
+#untuk running dan accept db yg dibuat
+php artisan migrate
+
+#membuat model
+php artisan make:model customer
+
+#membuat controller
+php artisan make:controller customerController
