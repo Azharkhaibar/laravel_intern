@@ -30,7 +30,9 @@ Route::middleware(['web'])->group(function () {
     // homeproduct, createproduct masuknya ke fungsi di controller
     // product.homeproduct, product.addproduct masuknya ke file view
     // store untuk action formnya, jadi bisa ditambah banyak
-    Route::get('/product', [productcontroller::class, 'homeproduct'])->name('product.homeproduct');
-    Route::get('/product/add', [productcontroller::class, 'createproduct'])->name('product.addproduct');
-    Route::post('/product', [productcontroller::class, 'store'])->name('product.store');
+    Route::get('/product', [ProductController::class, 'homeproduct'])->name('product.homeproduct');
+    Route::get('/product/add', [ProductController::class, 'createproduct'])->name('product.addproduct');
+    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{product}', [ProductController::class, 'updateProduct'])->name('product.update');
 });
