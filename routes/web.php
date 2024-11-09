@@ -3,11 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\haloController;
 use App\Http\Controllers\productcontroller;
+use App\Http\Controllers\todo\todoController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/halo', [haloController::class, 'pageHalo']);
+
+Route::get('/todo', [todoController::class, 'todoApp']);
 
 // Kelompokkan rute dengan middleware 'web'
 Route::middleware(['web'])->group(function () {
@@ -35,4 +41,6 @@ Route::middleware(['web'])->group(function () {
     Route::post('/product', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/{product}', [ProductController::class, 'updateProduct'])->name('product.update');
+
+    // rute baru belajar
 });
