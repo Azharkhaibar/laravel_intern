@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/halo', [haloController::class, 'pageHalo']);
 
 Route::get('/todo', [todoController::class, 'todoApp']);
+Route::post('/todo', [todoController::class, 'store']);
 
 // Kelompokkan rute dengan middleware 'web'
 Route::middleware(['web'])->group(function () {

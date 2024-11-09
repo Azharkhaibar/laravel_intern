@@ -10,4 +10,11 @@ class todoController extends Controller
     public function todoApp() {
         return view('todo.app');
     }
+
+    public function store(Request $request) {
+        $dataTask = $request->validate([
+            'task'=>'required|min:3',
+
+        ]);
+    }
 }
